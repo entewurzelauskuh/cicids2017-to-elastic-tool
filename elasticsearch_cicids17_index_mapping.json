@@ -1,0 +1,449 @@
+{
+  "settings" : {
+    "number_of_shards" : 1
+  },
+  "mappings": {
+    "properties": {
+      "@timestamp": {
+        "type": "date"
+      },
+      "@version": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "destination": {
+        "properties": {
+          "bytes": {
+            "type": "long"
+          },
+          "packets": {
+            "type": "long"
+          },
+          "ip": {
+            "type": "ip"
+          },
+          "port": {
+            "type": "long"
+          }
+        }
+      },
+      "ecs": {
+        "properties": {
+          "version": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          }
+        }
+      },
+      "event": {
+        "properties": {
+          "action": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "category": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "dataset": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "duration": {
+            "type": "float"
+          },
+          "kind": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "start": {
+            "type": "date"
+          }
+        }
+      },
+      "network": {
+        "properties": {
+          "bytes": {
+            "type": "long"
+          },
+          "packets": {
+            "type": "long"
+          },
+          "transport": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "type": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          }
+        }
+      },
+      "source": {
+        "properties": {
+          "bytes": {
+            "type": "long"
+          },
+          "packets": {
+            "type": "long"
+          },
+          "ip": {
+            "type": "ip"
+          },
+          "port": {
+            "type": "long"
+          }
+        }
+      },
+      "CICFlowMeter": {
+        "properties": {
+          "flow_id": {
+            "type": "text"
+          },
+          "down_up_ratio": {
+            "type": "long"
+          },
+          "fwd": {
+            "properties": {
+              "psh_flags": {
+                "type": "long"
+              },
+              "urg_flags": {
+                "type": "long"
+              },
+              "header_bytes": {
+                "type": "long"
+              },
+              "header_length": {
+                "type": "long"
+              },
+              "packets/s": {
+                "type": "long"
+              },
+              "init_win_bytes": {
+                "type": "long"
+              },
+              "act_data_pkt": {
+                "type": "long"
+              },
+              "min_segment_size": {
+                "type": "long"
+              },
+              "packet_length": {
+                "properties": {
+                  "max": {
+                    "type": "long"
+                  },
+                  "min": {
+                    "type": "long"
+                  },
+                  "mean": {
+                    "type": "float"
+                  },
+                  "std": {
+                    "type": "float"
+                  }
+                }
+              },
+              "IAT": {
+                "properties": {
+                  "total": {
+                    "type": "long"
+                  },
+                  "max": {
+                    "type": "long"
+                  },
+                  "min": {
+                    "type": "long"
+                  },
+                  "mean": {
+                    "type": "float"
+                  },
+                  "std": {
+                    "type": "float"
+                  }
+                }
+              },
+              "avg": {
+                "properties": {
+                  "segment_size": {
+                    "type": "float"
+                  },
+                  "bytes/bulk": {
+                    "type": "long"
+                  },
+                  "packets/bulk": {
+                    "type": "long"
+                  },
+                  "bulk_rate": {
+                    "type": "long"
+                  }
+                }
+              },
+              "subflow": {
+                "properties": {
+                  "packets": {
+                    "type": "long"
+                  },
+                  "bytes": {
+                    "type": "long"
+                  }
+                }
+              }
+            }
+          },
+          "bwd": {
+            "properties": {
+              "psh_flags": {
+                "type": "long"
+              },
+              "urg_flags": {
+                "type": "long"
+              },
+              "header_bytes": {
+                "type": "long"
+              },
+              "packets/s": {
+                "type": "long"
+              },
+              "init_win_bytes": {
+                "type": "long"
+              },
+              "packet_length": {
+                "properties": {
+                  "max": {
+                    "type": "long"
+                  },
+                  "min": {
+                    "type": "long"
+                  },
+                  "mean": {
+                    "type": "float"
+                  },
+                  "std": {
+                    "type": "float"
+                  }
+                }
+              },
+              "IAT": {
+                "properties": {
+                  "total": {
+                    "type": "long"
+                  },
+                  "max": {
+                    "type": "long"
+                  },
+                  "min": {
+                    "type": "long"
+                  },
+                  "mean": {
+                    "type": "float"
+                  },
+                  "std": {
+                    "type": "float"
+                  }
+                }
+              },
+              "avg": {
+                "properties": {
+                  "segment_size": {
+                    "type": "float"
+                  },
+                  "bytes/bulk": {
+                    "type": "long"
+                  },
+                  "packets/bulk": {
+                    "type": "long"
+                  },
+                  "bulk_rate": {
+                    "type": "long"
+                  }
+                }
+              },
+              "subflow": {
+                "properties": {
+                  "packets": {
+                    "type": "long"
+                  },
+                  "bytes": {
+                    "type": "long"
+                  }
+                }
+              }
+            }
+          },
+          "flow": {
+            "properties": {
+              "bytes/s": {
+                "type": "float"
+              },
+              "packets/s": {
+                "type": "float"
+              },
+              "IAT": {
+                "properties": {
+                  "max": {
+                    "type": "long"
+                  },
+                  "min": {
+                    "type": "long"
+                  },
+                  "mean": {
+                    "type": "float"
+                  },
+                  "std": {
+                    "type": "float"
+                  }
+                }
+              }
+            }
+          },
+          "packets": {
+            "properties": {
+              "avg_size": {
+                "type": "float"
+              },
+              "length": {
+                "properties": {
+                  "max": {
+                    "type": "long"
+                  },
+                  "min": {
+                    "type": "long"
+                  },
+                  "mean": {
+                    "type": "float"
+                  },
+                  "std": {
+                    "type": "float"
+                  },
+                  "variance": {
+                    "type": "float"
+                  }
+                }
+              }
+            }
+          },
+          "flag_count": {
+            "properties": {
+              "FIN": {
+                "type": "long"
+              },
+              "SYN": {
+                "type": "long"
+              },
+              "RST": {
+                "type": "long"
+              },
+              "PSH": {
+                "type": "long"
+              },
+              "ACK": {
+                "type": "long"
+              },
+              "URG": {
+                "type": "long"
+              },
+              "CWE": {
+                "type": "long"
+              },
+              "ECE": {
+                "type": "long"
+              }
+            }
+          },
+          "active": {
+            "properties": {
+              "max": {
+                "type": "long"
+              },
+              "min": {
+                "type": "long"
+              },
+              "mean": {
+                "type": "float"
+              },
+              "std": {
+                "type": "float"
+              }
+            }
+          },
+          "idle": {
+            "properties": {
+              "max": {
+                "type": "long"
+              },
+              "min": {
+                "type": "long"
+              },
+              "mean": {
+                "type": "float"
+              },
+              "std": {
+                "type": "float"
+              }
+            }
+          }
+        }
+      },
+      "tags": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "type": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      }
+    }
+  }
+}
